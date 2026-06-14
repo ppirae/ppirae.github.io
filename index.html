@@ -179,23 +179,23 @@
     body.compact { font-size: 12.5px; line-height: 1.45; }
     body.compact .pdf-fab { display: none !important; }
     body.compact .sheet { margin: 0 auto; box-shadow: none; padding: 32px 44px; }
-    body.compact section { margin-bottom: 13px !important; }
-    body.compact header { padding-bottom: 12px !important; margin-bottom: 13px !important; }
+    body.compact section { margin-bottom: 11px !important; }
+    body.compact header { padding-bottom: 11px !important; margin-bottom: 12px !important; }
     body.compact .name { font-size: 25px !important; }
     body.compact .role { font-size: 13.5px !important; margin-top: 2px !important; }
     body.compact .contact { margin-top: 9px !important; }
     body.compact .tagline { font-size: 12px !important; margin-bottom: 14px !important; line-height: 1.5 !important; }
     body.compact .sec-title { margin-bottom: 9px !important; }
     body.compact .about p { font-size: 12px !important; margin-bottom: 7px !important; }
-    body.compact .item { margin-bottom: 13px !important; }
+    body.compact .item { margin-bottom: 11px !important; }
     body.compact .item-title { font-size: 14.5px !important; }
     body.compact .item-summary { font-size: 12px !important; margin-top: 5px !important; }
-    body.compact .role-block { margin-top: 11px !important; }
-    body.compact .proj { margin-top: 10px !important; }
+    body.compact .role-block { margin-top: 10px !important; }
+    body.compact .proj { margin-top: 11px !important; }
     body.compact .proj-title { font-size: 12.5px !important; }
     body.compact .proj-stack { font-size: 10px !important; margin-bottom: 4px !important; }
-    body.compact .desc { font-size: 12px !important; }
-    body.compact .desc li { margin-bottom: 2px !important; }
+    body.compact .desc { font-size: 12px !important; line-height: 1.6 !important; }
+    body.compact .desc li { margin-bottom: 7px !important; }
     body.compact .tag { font-size: 11px !important; padding: 3px 8px !important; }
     body.compact .skills { gap: 5px !important; }
     body.compact .cert-row { padding: 3px 0 !important; }
@@ -203,6 +203,8 @@
     body.compact .edu-row { margin-bottom: 6px !important; }
     body.compact .edu-name { font-size: 13px !important; }
     body.compact footer { margin-top: 18px !important; padding-top: 12px !important; }
+    .gap-section { margin-top: 14px; }
+    body.compact .gap-section { margin-top: 22px !important; }
 
   </style>
 </head>
@@ -231,13 +233,13 @@
       문제의 본질을 파악하여 데이터 기반의 해결책을 찾는 것을 좋아합니다.
     </div>
 
-    <section class="about">
+    <section class="about gap-section">
       <div class="sec-title">About</div>
       <p>3년 차 백엔드 개발자로서 웅진씽크빅에서 MAU 최대 10만 규모의 북클럽 서비스 서버 개발과 레거시 개선 작업에 참여하고 있습니다. 10년 이상 된 SP 기반 로직을 분석해 다중 데이터소스 배치 시스템으로 전환하며 처리 성능을 8배 이상 개선했고, 병목 쿼리 튜닝으로 주요 API 응답 시간을 40초에서 5초 이내로 단축했습니다.</p>
       <p>또한 '기록이 곧 팀의 생산성'이라는 기준으로 일합니다. 파편화된 레거시를 파악하는 즉시 연간 50개 이상의 기술 위키로 문서화하여, 동료들의 반복 실수를 줄이고 팀의 온보딩 비용을 낮추는 데 기여해 왔습니다.</p>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Skills</div>
       <div class="skills">
         <span class="tag">Java</span>
@@ -254,7 +256,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Experience</div>
 
       <div class="item">
@@ -333,7 +335,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Projects</div>
       <div class="item">
         <div class="item-head">
@@ -353,7 +355,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Education</div>
       <div class="edu-row">
         <div>
@@ -378,7 +380,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Certifications</div>
       <div class="cert-row">
         <span class="cert-name">ADsP</span>
@@ -398,17 +400,13 @@
       </div>
     </section>
 
-    <section>
+    <section class="gap-section">
       <div class="sec-title">Links</div>
       <div class="links">
         <a class="link-chip" href="https://github.com/ppirae" target="_blank" rel="noopener">GitHub</a>
         <a class="link-chip" href="https://ppirae.tistory.com/" target="_blank" rel="noopener">Blog</a>
       </div>
     </section>
-
-    <footer>
-      Last updated 2026 · Built with HTML &amp; CSS
-    </footer>
 
   </div>
 
@@ -420,14 +418,24 @@
       btn.disabled = true;
       document.body.classList.add('compact');
       var opt = {
-        margin: [8, 8, 8, 8],
+        margin: [8, 8, 12, 8],
         filename: '조형래_백엔드_엔지니어.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak: { mode: ['css', 'legacy'], avoid: ['.proj', '.cert-row', '.edu-row'] }
       };
-      html2pdf().set(opt).from(el).save().then(function () {
+      html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
+        var total = pdf.internal.getNumberOfPages();
+        var w = pdf.internal.pageSize.getWidth();
+        var h = pdf.internal.pageSize.getHeight();
+        for (var i = 1; i <= total; i++) {
+          pdf.setPage(i);
+          pdf.setFontSize(9);
+          pdf.setTextColor(150);
+          pdf.text(i + ' / ' + total, w / 2, h - 5, { align: 'center' });
+        }
+      }).save().then(function () {
         document.body.classList.remove('compact');
         btn.textContent = 'PDF 저장';
         btn.disabled = false;
