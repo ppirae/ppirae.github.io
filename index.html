@@ -141,16 +141,39 @@
       .name { font-size: 28px; }
     }
     @media print {
-      body { background: #fff; }
+      body { background: #fff; font-size: 13px; line-height: 1.5; }
       .sheet {
         margin: 0; max-width: 100%;
         box-shadow: none; border-radius: 0;
         padding: 0;
       }
       a { color: var(--ink) !important; }
-      .proj, .item, .cert-row, .edu-row { page-break-inside: avoid; }
-      section { page-break-inside: auto; }
-      @page { margin: 14mm 12mm; }
+      .proj, .cert-row, .edu-row, .role-block { page-break-inside: avoid; }
+      section { page-break-inside: auto; margin-bottom: 16px !important; }
+      header { padding-bottom: 14px !important; margin-bottom: 16px !important; }
+      .name { font-size: 26px !important; }
+      .role { font-size: 14px !important; margin-top: 2px !important; }
+      .contact { margin-top: 10px !important; }
+      .tagline { font-size: 12.5px !important; margin-bottom: 18px !important; line-height: 1.55 !important; }
+      .sec-title { margin-bottom: 10px !important; }
+      .about p { font-size: 12.5px !important; margin-bottom: 8px !important; }
+      .item { margin-bottom: 16px !important; }
+      .item-title { font-size: 15px !important; }
+      .item-summary { font-size: 12.5px !important; margin-top: 5px !important; }
+      .role-block { margin-top: 12px !important; }
+      .proj { margin-top: 12px !important; }
+      .proj-title { font-size: 13px !important; }
+      .proj-stack { font-size: 10.5px !important; margin-bottom: 5px !important; }
+      .desc { font-size: 12.5px !important; }
+      .desc li { margin-bottom: 3px !important; }
+      .tag { font-size: 11.5px !important; padding: 3px 9px !important; }
+      .skills { gap: 6px !important; }
+      .cert-row { padding: 4px 0 !important; }
+      .cert-name { font-size: 13px !important; }
+      .edu-row { margin-bottom: 8px !important; }
+      .edu-name { font-size: 13.5px !important; }
+      footer { margin-top: 24px !important; padding-top: 14px !important; }
+      @page { margin: 11mm 12mm; }
     }
 
   </style>
