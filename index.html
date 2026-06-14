@@ -176,33 +176,33 @@
       footer { margin-top: 24px !important; padding-top: 14px !important; }
       @page { margin: 11mm 12mm; }
     }
-    body.compact { font-size: 13px; line-height: 1.5; }
+    body.compact { font-size: 12.5px; line-height: 1.45; }
     body.compact .pdf-fab { display: none !important; }
-    body.compact .sheet { margin: 0 auto; box-shadow: none; }
-    body.compact section { margin-bottom: 16px !important; }
-    body.compact header { padding-bottom: 14px !important; margin-bottom: 16px !important; }
-    body.compact .name { font-size: 26px !important; }
-    body.compact .role { font-size: 14px !important; margin-top: 2px !important; }
-    body.compact .contact { margin-top: 10px !important; }
-    body.compact .tagline { font-size: 12.5px !important; margin-bottom: 18px !important; line-height: 1.55 !important; }
-    body.compact .sec-title { margin-bottom: 10px !important; }
-    body.compact .about p { font-size: 12.5px !important; margin-bottom: 8px !important; }
-    body.compact .item { margin-bottom: 16px !important; }
-    body.compact .item-title { font-size: 15px !important; }
-    body.compact .item-summary { font-size: 12.5px !important; margin-top: 5px !important; }
-    body.compact .role-block { margin-top: 12px !important; }
-    body.compact .proj { margin-top: 12px !important; }
-    body.compact .proj-title { font-size: 13px !important; }
-    body.compact .proj-stack { font-size: 10.5px !important; margin-bottom: 5px !important; }
-    body.compact .desc { font-size: 12.5px !important; }
-    body.compact .desc li { margin-bottom: 3px !important; }
-    body.compact .tag { font-size: 11.5px !important; padding: 3px 9px !important; }
-    body.compact .skills { gap: 6px !important; }
-    body.compact .cert-row { padding: 4px 0 !important; }
-    body.compact .cert-name { font-size: 13px !important; }
-    body.compact .edu-row { margin-bottom: 8px !important; }
-    body.compact .edu-name { font-size: 13.5px !important; }
-    body.compact footer { margin-top: 24px !important; padding-top: 14px !important; }
+    body.compact .sheet { margin: 0 auto; box-shadow: none; padding: 32px 44px; }
+    body.compact section { margin-bottom: 13px !important; }
+    body.compact header { padding-bottom: 12px !important; margin-bottom: 13px !important; }
+    body.compact .name { font-size: 25px !important; }
+    body.compact .role { font-size: 13.5px !important; margin-top: 2px !important; }
+    body.compact .contact { margin-top: 9px !important; }
+    body.compact .tagline { font-size: 12px !important; margin-bottom: 14px !important; line-height: 1.5 !important; }
+    body.compact .sec-title { margin-bottom: 9px !important; }
+    body.compact .about p { font-size: 12px !important; margin-bottom: 7px !important; }
+    body.compact .item { margin-bottom: 13px !important; }
+    body.compact .item-title { font-size: 14.5px !important; }
+    body.compact .item-summary { font-size: 12px !important; margin-top: 5px !important; }
+    body.compact .role-block { margin-top: 11px !important; }
+    body.compact .proj { margin-top: 10px !important; }
+    body.compact .proj-title { font-size: 12.5px !important; }
+    body.compact .proj-stack { font-size: 10px !important; margin-bottom: 4px !important; }
+    body.compact .desc { font-size: 12px !important; }
+    body.compact .desc li { margin-bottom: 2px !important; }
+    body.compact .tag { font-size: 11px !important; padding: 3px 8px !important; }
+    body.compact .skills { gap: 5px !important; }
+    body.compact .cert-row { padding: 3px 0 !important; }
+    body.compact .cert-name { font-size: 12.5px !important; }
+    body.compact .edu-row { margin-bottom: 6px !important; }
+    body.compact .edu-name { font-size: 13px !important; }
+    body.compact footer { margin-top: 18px !important; padding-top: 12px !important; }
 
   </style>
 </head>
@@ -420,12 +420,12 @@
       btn.disabled = true;
       document.body.classList.add('compact');
       var opt = {
-        margin: [10, 10, 10, 10],
+        margin: [8, 8, 8, 8],
         filename: '조형래_백엔드_엔지니어.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'], avoid: ['.proj', '.role-block', '.cert-row', '.edu-row'] }
+        pagebreak: { mode: ['css', 'legacy'], avoid: ['.proj', '.cert-row', '.edu-row'] }
       };
       html2pdf().set(opt).from(el).save().then(function () {
         document.body.classList.remove('compact');
