@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조형래 · 백엔드 엔지니어</title>
+  <meta name="description" content="조형래 — 백엔드 엔지니어 이력서">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #5f5f5f;
+      --faint: #9a9a9a;
+      --line: #e8e8e8;
+      --accent: #2b59c3;
+      --tag-bg: #f4f5f7;
+      --maxw: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f6f7f9;
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: var(--maxw);
+      margin: 40px auto;
+      background: var(--bg);
+      padding: 60px 56px 72px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.05);
+    }
+    header {
+      border-bottom: 2px solid var(--ink); padding-bottom: 24px; margin-bottom: 28px;
+    }
+    .name { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+    .role { font-size: 17px; color: var(--muted); margin-top: 4px; font-weight: 400; }
+    .contact {
+      margin-top: 16px; font-size: 13px; color: var(--faint);
+      font-family: 'JetBrains Mono', monospace;
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    .contact a { color: var(--faint); text-decoration: none; transition: color .15s; }
+    .contact a:hover { color: var(--accent); }
+    .tagline {
+      font-size: 15px; color: var(--muted); margin-bottom: 36px; line-height: 1.75;
+    }
+    section { margin-bottom: 40px; }
+    .sec-title {
+      font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sec-title::before {
+      content: ''; width: 14px; height: 2px;
+      background: var(--accent); display: inline-block;
+    }
+    .about p { font-size: 14.5px; color: var(--ink); margin-bottom: 14px; }
+    .about p:last-child { margin-bottom: 0; }
+    .about strong { font-weight: 500; color: var(--accent); }
+    .item { margin-bottom: 30px; }
+    .item:last-child { margin-bottom: 0; }
+    .item-head {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 16px; flex-wrap: wrap;
+    }
+    .item-title { font-size: 17px; font-weight: 700; }
+    .item-sub { font-size: 13px; color: var(--faint); margin-top: 2px; }
+    .item-date {
+      font-size: 12.5px; color: var(--faint);
+      font-family: 'JetBrains Mono', monospace; white-space: nowrap;
+    }
+    .item-summary { font-size: 14px; color: var(--muted); margin-top: 8px; }
+    .role-block { margin-top: 22px; padding-left: 16px; border-left: 2px solid var(--line); }
+    .role-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 2px;
+    }
+    .role-title { font-size: 15px; font-weight: 500; color: var(--accent); }
+    .role-date { font-size: 12px; color: var(--faint); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+    .proj { margin-top: 18px; }
+    .proj-title {
+      font-size: 14.5px; font-weight: 500; color: var(--ink);
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .proj-date { font-size: 11.5px; color: var(--faint); font-family: 'JetBrains Mono', monospace; font-weight: 400; }
+    .proj-stack {
+      font-size: 11.5px; color: var(--accent); font-family: 'JetBrains Mono', monospace;
+      margin-top: 3px; margin-bottom: 8px;
+    }
+    .desc { font-size: 14px; color: var(--muted); }
+    .desc ul { list-style: none; }
+    .desc li { position: relative; padding-left: 16px; margin-bottom: 5px; }
+    .desc li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+    .desc li b { font-weight: 500; color: var(--ink); }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 13px; background: var(--tag-bg);
+      padding: 5px 12px; border-radius: 6px; color: #444;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .cert-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 7px 0; border-bottom: 1px solid var(--line); gap: 12px;
+    }
+    .cert-name { font-size: 14.5px; font-weight: 500; }
+    .cert-meta { font-size: 12px; color: var(--faint); font-family: 'JetBrains Mono', monospace; }
+    .edu-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 12px;
+    }
+    .edu-row:last-child { margin-bottom: 0; }
+    .edu-name { font-size: 15px; font-weight: 500; }
+    .edu-sub { font-size: 12.5px; color: var(--faint); }
+    .edu-date { font-size: 12px; color: var(--faint); font-family: 'JetBrains Mono', monospace; }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .link-chip {
+      font-size: 13px; font-family: 'JetBrains Mono', monospace;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid var(--line); padding: 6px 14px; border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .link-chip:hover { border-color: var(--accent); }
+    footer {
+      margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--line);
+      font-size: 12px; color: var(--faint);
+      font-family: 'JetBrains Mono', monospace; text-align: center;
+    }
+    @media (max-width: 600px) {
+      .sheet { padding: 40px 24px 56px; margin: 16px auto; border-radius: 0; }
+      .name { font-size: 28px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet {
+        margin: 0; max-width: 100%;
+        box-shadow: none; border-radius: 0;
+        padding: 0;
+      }
+      a { color: var(--ink) !important; }
+      .proj, .item, .cert-row, .edu-row { page-break-inside: avoid; }
+      section { page-break-inside: auto; }
+      @page { margin: 14mm 12mm; }
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <div class="sheet" id="resume">
+
+    <header>
+      <div class="name">조형래</div>
+      <div class="role">백엔드 엔지니어</div>
+      <div class="contact">
+        <a href="mailto:whgudfo77@naver.com">whgudfo77@naver.com</a>
+        <a href="https://github.com/ppirae" target="_blank" rel="noopener">github.com/ppirae</a>
+        <a href="https://ppirae.tistory.com/" target="_blank" rel="noopener">blog</a>
+      </div>
+    </header>
+
+    <div class="tagline">
+      비즈니스의 병목을 찾아 성능을 개선하고, 낡은 레거시를 안정적인 구조로 개선해 나가는 백엔드 엔지니어입니다.
+      문제의 본질을 파악하여 데이터 기반의 해결책을 찾는 것을 좋아합니다.
+    </div>
+
+    <section class="about">
+      <div class="sec-title">About</div>
+      <p>3년 차 백엔드 개발자로서 웅진씽크빅에서 MAU 최대 10만 규모의 북클럽 서비스 서버 개발과 레거시 개선 작업에 참여하고 있습니다. 10년 이상 된 SP 기반 로직을 분석해 다중 데이터소스 배치 시스템으로 전환하며 처리 성능을 8배 이상 개선했고, 병목 쿼리 튜닝으로 주요 API 응답 시간을 40초에서 5초 이내로 단축했습니다.</p>
+      <p>또한 '기록이 곧 팀의 생산성'이라는 기준으로 일합니다. 파편화된 레거시를 파악하는 즉시 연간 50개 이상의 기술 위키로 문서화하여, 동료들의 반복 실수를 줄이고 팀의 온보딩 비용을 낮추는 데 기여해 왔습니다.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Skills</div>
+      <div class="skills">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Spring Batch</span>
+        <span class="tag">JPA</span>
+        <span class="tag">MyBatis</span>
+        <span class="tag">Oracle</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">MariaDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">AWS</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Experience</div>
+
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <div class="item-title">(주)웅진씽크빅</div>
+          </div>
+          <div class="item-date">2023.02 – 재직 중</div>
+        </div>
+
+        <div class="role-block">
+          <div class="role-head">
+            <div class="role-title">연구원 · 북클럽서비스개발팀</div>
+            <div class="role-date">2023.08 – 재직 중 (2년 10개월)</div>
+          </div>
+          <div class="item-summary">MAU 최대 10만 규모의 웅진북클럽 서비스의 백엔드 개발 및 레거시 시스템 개선 작업을 맡고 있습니다.</div>
+
+        <div class="proj">
+          <div class="proj-title">
+            <span>북클럽 3.0 백엔드 구조 개선 및 도서관 서비스 신규 구축</span>
+            <span class="proj-date">2026.04 – 현재</span>
+          </div>
+          <div class="proj-stack">Java 17 · Spring Boot 3.2 · JPA · PostgreSQL · Spring Batch · AWS EKS · NCP · SK CDN</div>
+          <div class="desc">
+            <ul>
+              <li><b>멀티모듈 아키텍처 구성</b> — 서비스별로 흩어져 util을 중복 관리하던 기존 구조(북클럽 2.0)의 비효율을 해소하기 위해, 공통 모듈(Core)·데이터 접근(Infra)·비즈니스 로직(Service)으로 분리한 멀티모듈 구조로 재구성. 공통 코드 중복을 제거하고 서비스별 독립성과 유지보수성을 확보</li>
+              <li><b>DRM 자체 구축 및 내재화</b> — 기존 외부 업체의 DRM 모듈이 지원 중단으로 유지보수가 불가능한 의존성으로 남자, AES-GCM·RSA-OAEP 기반 DRM을 자체 설계하여 교체. NCP Object Storage 및 SK CDN과 연동해 안전한 콘텐츠 서빙 환경을 확보하고 외부 의존 리스크 제거</li>
+              <li><b>데이터 정합성 및 성능 확보</b> — Spring Batch 기반 MariaDB → PostgreSQL 이관 후 ISBN 기반 매칭 검증 배치로 수만 건의 데이터 무결성을 확보하고, 벌크 IN 쿼리·DB 페이징 도입으로 주요 API 쿼리 호출을 약 40% 감소</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-title">
+            <span>집합형 회원 권한 자동 동기화 시스템 설계 및 개발</span>
+            <span class="proj-date">2026.01 – 2026.05</span>
+          </div>
+          <div class="proj-stack">Java 21 · Spring Batch 5 · MyBatis · Oracle · MariaDB</div>
+          <div class="desc">
+            <ul>
+              <li><b>레거시 쿼리 전환</b> — 10년 이상 유지되며 담당자도 이력 파악도 어려워진 HODP 서버의 비즈니스 로직이 Stored Procedure에 묶여 수정이 불가능한 상태였음. 이를 MyBatis 기반 벌크 쿼리로 전환하며, 핵심 로직인 회원 권한 체크와 과목 조회를 SP에서 쿼리로 재구현하여 코드 레벨에서 관리·개선 가능한 구조로 회복</li>
+              <li><b>전환 안정성 검증</b> — 기존 SP 실행 결과와 신규 쿼리 결과를 비교하는 테스트 코드를 작성하여 동등성을 검증, 레거시 전환 과정에서의 데이터 변질 위험 차단</li>
+              <li><b>배치 성능 8배 개선</b> — 건당 처리 방식을 IN절 벌크 조회 및 청크 단위 MERGE 구조로 변경하여 24만 건 처리 시간을 25~30분 내외로 단축</li>
+              <li><b>멀티 데이터소스 연동</b> — Oracle(원본)과 MariaDB(대상) 간 3-DB 연동 동기화 시스템 구축 및 복합키 캐싱/롤백 구조 설계로 데이터 무결성 보장</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-title">
+            <span>기존 20여 개 서비스 운영 및 성능 개선</span>
+            <span class="proj-date">2023.08 – 현재</span>
+          </div>
+          <div class="proj-stack">Java 8 · Java 11 · Spring Legacy · MyBatis · Oracle · MariaDB</div>
+          <div class="desc">
+            <ul>
+              <li><b>다수의 레거시 서비스 동시 운영</b> — 팀이 보유한 20여 개 교육 콘텐츠 서비스를 동시에 운영하며, 문서화가 부실한 다양한 도메인의 레거시를 빠르게 파악해 대응. 여러 기술 스택(Java 8/11, Spring Legacy 등)을 넘나들며 안정적으로 유지보수</li>
+              <li><b>복잡한 집계 쿼리 성능 최적화</b> — '도서 count' 등 대량 데이터 조회 시 발생하는 병목 쿼리를 분석/튜닝하여 기존 40초 응답 시간을 5초 이내로 단축</li>
+              <li><b>기술 부채 해결</b> — 레거시 분석 및 트러블슈팅 가이드를 연간 50건 이상 사내 위키에 기록하여 팀 온보딩 시간 단축</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+
+        <div class="role-block">
+          <div class="role-head">
+            <div class="role-title">인턴 · 독서학습플랫폼</div>
+            <div class="role-date">2023.02 – 2023.07 (6개월)</div>
+          </div>
+          <div class="desc" style="margin-top:8px;">
+            <ul>
+              <li><b>자동화 시스템 구축</b> — 기존 엑셀과 메일 기반의 자재 파일 전송 로직을 분석, 서버 저장 로직으로 개선하여 도서 전문 변환 프로세스를 8단계에서 5단계로 단축. 타 부서(기획/콘텐츠)의 반복적인 운영 업무 시간 절감</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Projects</div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <div class="item-title">여행의 기록을 남기다 (여기다) — 앱 서버 개발</div>
+            <div class="item-sub">Udemy Starters 2기</div>
+          </div>
+          <div class="item-date">2022.11 – 2023.01</div>
+        </div>
+        <div class="desc" style="margin-top:8px;">
+          <ul>
+            <li><b>비전공 동료와의 협업 주도</b> — 비전공 교육 동기와 한 팀으로 개발하며, 페어프로그래밍과 코드 리뷰로 개념을 함께 정리하고 동료의 학습을 도와 팀 전체의 완성도를 높임</li>
+            <li><b>학습 및 문서화</b> — 협업을 위한 API 명세서 작성 및 발생한 이슈/트러블슈팅 과정을 철저히 문서화하여 성장의 기반을 다짐</li>
+            <li><a href="https://ppirae.tistory.com/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">[블로그] Udemy Starters 2기 활동 회고록 ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Education</div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">서경대학교</div>
+          <div class="edu-sub">컴퓨터과학과 · 학사 · 졸업</div>
+        </div>
+        <div class="edu-date">2017.03 – 2023.09</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">Udemy Starters 2기</div>
+          <div class="edu-sub">사설 교육 · 자바 / 스프링 · 졸업</div>
+        </div>
+        <div class="edu-date">2022.10 – 2023.01</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">용문고등학교</div>
+          <div class="edu-sub">이공계 · 졸업</div>
+        </div>
+        <div class="edu-date">2014.03 – 2016.02</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Certifications</div>
+      <div class="cert-row">
+        <span class="cert-name">ADsP</span>
+        <span class="cert-meta">한국데이터진흥원 · 2025.03</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">AICE BASIC</span>
+        <span class="cert-meta">(주)케이티 · 2024.12</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">SQLD</span>
+        <span class="cert-meta">한국데이터진흥원 · 2023.04</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">정보처리기사</span>
+        <span class="cert-meta">한국산업인력공단 · 2022.11</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Links</div>
+      <div class="links">
+        <a class="link-chip" href="https://github.com/ppirae" target="_blank" rel="noopener">GitHub</a>
+        <a class="link-chip" href="https://ppirae.tistory.com/" target="_blank" rel="noopener">Blog</a>
+      </div>
+    </section>
+
+    <footer>
+      Last updated 2026 · Built with HTML &amp; CSS
+    </footer>
+
+  </div>
+
+</body>
+</html>
