@@ -301,7 +301,7 @@
               <li><b>레거시 쿼리 전환</b> — 10년 이상 유지되며 담당자 부재로 이력 파악도 어려워진 공부방 서버의 비즈니스 로직이 Stored Procedure에 묶여 수정이 불가능한 상태였음. 핵심 로직인 회원 권한 체크와 과목 조회를 MyBatis 기반 벌크 쿼리로 재구현하여 코드 레벨에서 관리·개선 가능한 구조로 회복</li>
               <li><b>전환 안정성 검증</b> — 기존 SP 실행 결과와 신규 쿼리 결과를 비교하는 테스트 코드를 작성하여 동등성을 검증, 레거시 전환 과정에서의 데이터 변질 위험 차단</li>
               <li><b>배치 성능 8배 개선</b> — 건당 처리 방식을 IN절 벌크 조회 및 청크 단위 MERGE 구조로 변경하여 24만 건 처리 시간을 25~30분 내외로 단축</li>
-              <li><b>멀티 데이터소스 연동</b> — Oracle(원본)과 MariaDB(대상) 간 3-DB 연동 계정 발급 시스템 구축 및 롤백 구조 설계로 데이터 무결성 보장</li>
+              <li><b>멀티 데이터소스 연동</b> — Oracle(원본)과 MariaDB(대상) 간 3-DB 연동 계정 발급 시스템 구축 및 복합키 캐싱/롤백 구조 설계로 데이터 무결성 보장</li>
             </ul>
           </div>
         </div>
@@ -418,6 +418,11 @@
       btn.textContent = '생성 중...';
       btn.disabled = true;
       document.body.classList.add('compact');
+      document.fonts.ready.then(function () {
+        generatePDF(el, btn);
+      });
+    }
+    function generatePDF(el, btn) {
       var opt = {
         margin: [8, 8, 12, 8],
         filename: '조형래_이력서.pdf',
