@@ -429,7 +429,7 @@
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'], avoid: ['.proj', '.cert-row', '.edu-row'] }
+        pagebreak: { mode: ['css', 'legacy'], avoid: ['.desc li', '.proj-title', '.role-head', '.cert-row', '.edu-row'] }
       };
       html2pdf().set(opt).from(el).toPdf().get('pdf').then(function (pdf) {
         var total = pdf.internal.getNumberOfPages();
